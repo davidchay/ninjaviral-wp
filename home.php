@@ -1,4 +1,9 @@
 <?php get_header(); ?>
+<?php 
+	if(is_home()){ 
+		include(TEMPLATEPATH.'/slider_post.php'); 
+	} 
+?>
 	<div id="container-post-home" class="container margin-v text-left">
 		<?php
 			if(have_posts()):
@@ -9,15 +14,15 @@
 							<figure>
 								<?php 
 									if ( has_post_thumbnail() ) { 
-										the_post_thumbnail( 'home_thumb' ); 
+										the_post_thumbnail('home_thumb'); 
 									}else{?>
-										<img src="<?php echo IMAGENES; ?>/default.jpg" alt="titutlo del articulo">
+										<img src="<?php echo IMAGENES; ?>/thumnail.jpg" width="300" height="150" alt="<?php the_title(); ?>">
 								<?php } ?>
 							</figure>
 						</a>
-						<span class="info-post tablet">
+						<span class="info-post tablet mayus">
 							<?php $category=get_the_category( $post_id ); ?>
-							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link_cat_<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> 12</span>
+							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link_cat_<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> <?php echo getPostViews(get_the_ID()); ?></span>
 						<h2 class="titulo_post">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
 								<?php the_title(); ?>
