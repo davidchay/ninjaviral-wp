@@ -56,9 +56,15 @@
 
 	/*scrool infinito*/
 	function load_more(){
-		$offset = $_POST['offset'];
+		$offset =$_POST['offset'];
 		$number_of_posts = get_option( "posts_per_page");
-		$args = array("posts_per_page"=>$number_of_posts,"offset"=>$offset);
+		$args = array(
+			"posts_per_page"=>$number_of_posts,
+			"offset"=>$offset,
+			'post_type' => 'post',
+			'post_status'      => 'publish',
+			'suppress_filters' => true 
+			);
 		$posts = get_posts($args);
 		foreach($posts as $post){
 			setup_postdata( $post );

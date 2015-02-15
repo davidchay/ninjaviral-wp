@@ -54,7 +54,7 @@ $(function(){
 });
 
 var post_offset, increment,loading=0;
-var url = window.location.href;  
+var url = location.pathname;  
 
 (function($){
 	$(document).ready(function(){
@@ -63,7 +63,8 @@ var url = window.location.href;
 
 	var checkScroll = function (e){
 		var elem = $(e.currentTarget);
-		if($(window).scrollTop() + $(window).height() + 600 > $(document).height()) {
+		console.log(elem);
+		if($(window).scrollTop() + $(window).height() + 20 > $(document).height()) {
 			if(loading) return true;
 			if(!loading) {
 				loading=1;
@@ -73,11 +74,15 @@ var url = window.location.href;
 						post_offset+=increment;
 						loading=0;
 						$("#container-post-home").append(data);
+						
+					}else{
+						return ;
 					}
 
 				});
 		//now load more content
 		}
+		console.log(url+"wp-admin/admin-ajax.php");
 	}
 }
 }(jQuery));
