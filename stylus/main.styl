@@ -50,7 +50,7 @@ figure
 	text-align center
 figcaption
 	text-align center
-	font-style italic		
+	font-style italic	
 /*Clases de ayuda*/
 .btn
 	background gris_claro
@@ -150,7 +150,9 @@ figcaption
 	text-transform uppercase
 	a
 		color gris_claro
-
+.img-thumb
+	overflow hidden
+	background red
 .logo
 	h1
 		margin 0
@@ -221,8 +223,13 @@ figcaption
 	width 48.5%
 	figure
 		margin 0
+		width auto
+		max-height 160px
+		overflow hidden
+		background gris_claro
 		img
 			width 100%
+			//height auto
 	h2
 		margin .5rem 0
 		font-size 1rem
@@ -349,8 +356,10 @@ figcaption
 	display block
 	table
 		width 100%
+.widget-more-popular
 .widget-last-post
 	margin-bottom 1.5rem;
+	overflow hidden
 	h3
 		font-weight normal
 		margin 0
@@ -407,6 +416,34 @@ figcaption
 	text-align left
 	vertical-align top
 	width 32.5%		
+	font-size .75rem;
+	div
+		background negro
+		width 100%	
+		height 170px
+		display block
+		margin 0
+		margin-bottom 4%
+		position relative
+		img
+			height auto
+			width 100%
+		h3
+			background rgba(negro, .50)
+			bottom 0
+			color white
+			font-size 1.1rem
+			font-weight normal
+			left 0
+			margin 0
+			padding .35rem
+			position absolute
+			a
+				color blanco
+				&:hover
+					color blanco
+		&:last-child
+			bottom 0
 #destacados-wraper
 	font-size 0
 	overflow hidden
@@ -443,6 +480,7 @@ figcaption
 		width 28%
 	.logo-image
 		height 5rem
+	
 	.menu-principal
 		display block
 		max-width 100%

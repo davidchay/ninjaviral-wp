@@ -1,6 +1,6 @@
 <aside class="sidebar">
 		<ul class="text-left">
-		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
+		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar') ) : ?>
 			<li>
 				<form method="get" id="searchform" action="<?php	bloginfo('url'); ?>/">
 					<p>

@@ -52,3 +52,32 @@ $(function(){
 	  })
 
 });
+
+var post_offset, increment,loading=0;
+var url = window.location.href;  
+
+(function($){
+	$(document).ready(function(){
+		$(window).bind('scroll',checkScroll);
+	});
+
+	var checkScroll = function (e){
+		var elem = $(e.currentTarget);
+		if($(window).scrollTop() + $(window).height() + 600 > $(document).height()) {
+			if(loading) return true;
+			if(!loading) {
+				loading=1;
+				var params = {"offset":post_offset,"action":"load_more"}
+				$.post(url+"wp-admin/admin-ajax.php",params,function(data){
+					if(data){
+						post_offset+=increment;
+						loading=0;
+						$("#container-post-home").append(data);
+					}
+
+				});
+		//now load more content
+		}
+	}
+}
+}(jQuery));

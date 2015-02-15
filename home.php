@@ -11,12 +11,12 @@
 					the_post();	?>
 					<div id="post-<?php the_ID(); ?>" <?php post_class('post_home'); ?> >
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<figure>
+							<figure  >
 								<?php 
 									if ( has_post_thumbnail() ) { 
 										the_post_thumbnail('home_thumb'); 
 									}else{?>
-										<img src="<?php echo IMAGENES; ?>/thumnail.jpg" width="300" height="150" alt="<?php the_title(); ?>">
+										<img src="<?php echo IMAGENES; ?>/default-slider.jpg"  alt="<?php the_title(); ?>">
 								<?php } ?>
 							</figure>
 						</a>
@@ -34,4 +34,7 @@
 				<p><?php  _e('No se encontro ninguna entrada en este sitio, lo sentimos!'); ?> </p>
 			<?php endif; ?>
 	</div><!--  finaliza articulos home -->
+<script type="text/javascript">
+	post_offset = increment = <?php echo get_option( 'posts_per_page' );?>;
+</script>
 <?php get_footer();

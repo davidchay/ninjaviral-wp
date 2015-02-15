@@ -37,7 +37,7 @@
 	<meta name="theme-color" content="#ffffff">
  	<?php wp_head(); ?>
 </head>
-<body >
+<body <?php body_class();?>>
 	<header class="header">
 		<div class="top_social">
 			<div class="container text-right ">
@@ -94,14 +94,14 @@
 				<?php endif; ?>	
 
 			</div>
-			<nav class="nav_principal">
-			<?php 
-			$menu = array( 
-				'theme_location' => 'principal-menu',
-				'container'       => false, 
-				'items_wrap' => '<ul class="menu menu-principal">%3$s</ul>'
-				);
-			wp_nav_menu($menu); ?>
+			<nav class="nav-principal">
+				<?php 
+				$menu = array( 
+					'theme_location' => 'principal-menu',
+					'container'       => false, 
+					'items_wrap' => '<ul class="menu menu-principal">%3$s</ul>'
+					);
+				wp_nav_menu($menu); ?>
 			</nav>
 		</div>
 	</header>
