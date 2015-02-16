@@ -53,36 +53,37 @@ $(function(){
 
 });
 
-var post_offset, increment,loading=0;
-var url = location.pathname;  
+var post_offset, increment,total;
+var pathname = window.location.pathname;
+(function($) {
+  var count = 2;
+  $(window).scroll(function(){
+          if($(window).scrollTop() == $(document).height() - $(window).height())
+          {
+            if(count > total){
+	            return false;
+	        }else{
+	        	loadArticle(count);
+	        }
+	        count++;                                       
+          }
+  }); 
 
-(function($){
-	$(document).ready(function(){
-		$(window).bind('scroll',checkScroll);
-	});
+  function loadArticle(pageNumber){    
+          $('a#inifiniteLoader').show('fast');
+          var parametros="action=infinite_scroll&page_no="+pageNumber+ '&loop_file=loop'+'&offset='+post_offset;
+          $.ajax({
+              url: pathname+"wp-admin/admin-ajax.php",
+              type:'POST',
+              data: parametros, 
+              success: function(html){
+              	post_offset+=increment;
+                  $('a#inifiniteLoader').hide('1000');
+                  $("#container-post-home").append(html);
+                      // This will be the div where our content will be loaded
+              }
+          });
+      return false;
+  }
 
-	var checkScroll = function (e){
-		var elem = $(e.currentTarget);
-		console.log(elem);
-		if($(window).scrollTop() + $(window).height() + 20 > $(document).height()) {
-			if(loading) return true;
-			if(!loading) {
-				loading=1;
-				var params = {"offset":post_offset,"action":"load_more"}
-				$.post(url+"wp-admin/admin-ajax.php",params,function(data){
-					if(data){
-						post_offset+=increment;
-						loading=0;
-						$("#container-post-home").append(data);
-						
-					}else{
-						return ;
-					}
-
-				});
-		//now load more content
-		}
-		console.log(url+"wp-admin/admin-ajax.php");
-	}
-}
 }(jQuery));

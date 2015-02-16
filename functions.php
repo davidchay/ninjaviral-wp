@@ -55,23 +55,21 @@
 
 
 	/*scrool infinito*/
-	function load_more(){
-		$offset =$_POST['offset'];
-		$number_of_posts = get_option( "posts_per_page");
-		$args = array(
-			"posts_per_page"=>$number_of_posts,
-			"offset"=>$offset,
-			'post_type' => 'post',
-			'post_status'      => 'publish',
-			'suppress_filters' => true 
-			);
-		$posts = get_posts($args);
-		foreach($posts as $post){
-			setup_postdata( $post );
-			global $post;
-			if($post){
-			?>
-			<div id="post-<?php the_ID(); ?>" <?php post_class('post_home'); ?> >
+	function wp_infinitepaginate(){ 
+		$offset = $_POST['offset'];
+		$posts_per_page  = get_option('posts_per_page');
+	 	$args=array(
+	 			'posts_per_page'=>$posts_per_page,
+                'offset'=>$offset
+            );
+	    # Load the posts
+		global $post;
+	    $posts=get_posts($args);
+	    foreach ($posts as $post){
+		setup_postdata($post);
+ 		if($post){
+					?>
+					<div id="post-<?php the_ID(); ?>" <?php post_class('post_home'); ?> >
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<figure  >
 								<?php 
@@ -91,12 +89,11 @@
 							</a>
 						</h2>
 					</div>
-			<?php
+				<?php 
 			}
-		}
-		die();
+		}	
+	    
 	}
-
-	add_action("wp_ajax_nopriv_load_more","load_more");
-	add_action("wp_ajax_load_more","load_more");
+add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
+add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
 ?>

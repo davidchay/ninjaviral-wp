@@ -1,14 +1,11 @@
-<?php get_header(); ?>
-<?php 
-	if(is_home()){ 
-		include(TEMPLATEPATH.'/slider_post.php'); 
-	} 
-?>
-	<div id="container-post-home" class="container margin-v text-left">
 		<?php
-			if(have_posts()):
-				while(have_posts()):
-					the_post();	?>
+		echo "Posty $posts";
+			if($posts):
+				foreach ($posts as $post){
+					setup_postdata( $post );
+					global $post;
+ 
+					?>
 					<div id="post-<?php the_ID(); ?>" <?php post_class('post_home'); ?> >
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<figure  >
@@ -29,12 +26,9 @@
 							</a>
 						</h2>
 					</div>
-				<?php endwhile; ?>
+				<?php } ?>
 			<?php else: ?>
 				<p><?php  _e('No se encontro ninguna entrada en este sitio, lo sentimos!'); ?> </p>
-			<?php endif; ?>
-	</div><!--  finaliza articulos home -->
-<script type="text/javascript">
-	post_offset = increment = <?php echo get_option( 'posts_per_page' );?>;
-</script>
-<?php get_footer();
+			<?php endif; 
+		
+			?>

@@ -13,6 +13,10 @@
 	<link rel="stylesheet" href="<?php echo DIRECTORIO; ?>/css/owl.theme.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo DIRECTORIO; ?>/css/main.css">
 
+	<script src="<?php echo bloginfo('template_directory'); ?>/js/jquery.min.js"></script>
+	<script src="<?php echo bloginfo('template_directory'); ?>/js/main.js"></script>
+		
+
 	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900italic,900,300italic,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="alternate" type="aplication/rss+xml" title="rss 2.0" href="<?php bloginfo('rss2_url'); ?>">
@@ -36,7 +40,11 @@
 	<meta name="msapplication-TileImage" content="<?PHP echo DIRECTORIO; ?>/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
  	<?php wp_head(); ?>
+ 	<?php 
+ 	echo "total = ".$wp_query->max_num_pages;
+ 	?>
 </head>
+
 <body <?php body_class();?>>
 	<header class="header">
 		<div class="top_social">
