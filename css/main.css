@@ -893,13 +893,9 @@ figcaption {
   color: #c32700;
 }
 /*Identificadores*/
-a#inifiniteLoader {
-  position: fixed;
+#inifiniteLoader {
+  display: none;
 }
-bottom 15px,
-display none,
-right 10px,
-z-index 2,
 #container-post-home {
   font-size: 0;
 }

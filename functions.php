@@ -55,16 +55,17 @@
 
 
 	/*scrool infinito*/
-	function wp_infinitepaginate(){ 
+	function wp_infinitepaginate(){
 		$offset = $_POST['offset'];
 		$posts_per_page  = get_option('posts_per_page');
 	 	$args=array(
+	 			'post_type' => 'post',
 	 			'posts_per_page'=>$posts_per_page,
                 'offset'=>$offset
             );
 	    # Load the posts
-		global $post;
 	    $posts=get_posts($args);
+		global $post;
 	    foreach ($posts as $post){
 		setup_postdata($post);
  		if($post){

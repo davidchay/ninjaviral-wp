@@ -1,9 +1,12 @@
 <?php get_header(); ?>
-<?php 
-	if(is_home()){ 
-		include(TEMPLATEPATH.'/slider_post.php'); 
-	} 
-?>
+	<div class="container text-left margin-v">
+		<h3>Resultados de la busqueda -	 "<?php echo($s); ?>".</h3>
+		<span class="float-left">
+			Si no estas satisfecho con los resultados, realiza otra busqueda &nbsp;
+		</span>
+		<?php get_search_form($s); ?>
+
+	</div>
 	<div id="container-post-home" class="container margin-v text-left">
 		<?php 
 		$args = array( 'post_type' => 'post');

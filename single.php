@@ -33,10 +33,9 @@
 					<a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');" class="btn btn-facebook">Compartir</a>
 					<a href="javascript: void(0);" onclick="window.open('http://twitter.com/home?status=<?php the_permalink(); ?>','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');" class="btn btn-twitter"> Twittear</a>
 				</div>
-				<h3>rELACIONADOSS</h3>
-			<?php include(DIRFUNCTIONS.'post-relacionados.php'); 
+				
 
-			?>
+			
 				<?php 
 					endwhile;
 					else: ?>
@@ -47,56 +46,12 @@
 
 			</article>
 			<div class="post-sugeridos">
-				<div class="post-suggest">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
-				<div class="post-suggest">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
-				<div class="post-suggest">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
-				<div class="post-suggest">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
-				<div class="post-suggest">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
-				<div class="post-suggest text-left">
-					<a href="#" title="Titulo de la entrada">
-						<figure>
-							<img src="images/contents/entrada_c.jpg" alt="titutlo del articulo">
-						</figure>
-					</a>
-					<h2 class="titulo_post"><a href="#" title="Titulo de la entrada">Titulo de la entrada</a></h2>
-				</div>
+				<?php include(DIRFUNCTIONS.'post-relacionados.php'); ?>
 			</div>
-
+			<h3>Commentarios</h3>
+			<fb:comments-count href=<?php the_permalink(); ?>></fb:comments-count> Comentarios. 
+			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light">
+			</div>
 		</div>
 		<?php get_sidebar(); ?>
 		

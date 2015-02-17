@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo DIRECTORIO; ?>/css/main.css">
 
 	<script src="<?php echo bloginfo('template_directory'); ?>/js/jquery.min.js"></script>
+	<script src="<?php echo bloginfo('template_directory'); ?>/js/owl.carousel.min.js"></script>
 	<script src="<?php echo bloginfo('template_directory'); ?>/js/main.js"></script>
 		
 
@@ -40,12 +41,17 @@
 	<meta name="msapplication-TileImage" content="<?PHP echo DIRECTORIO; ?>/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
  	<?php wp_head(); ?>
- 	<?php 
- 	echo "total = ".$wp_query->max_num_pages;
- 	?>
 </head>
 
 <body <?php body_class();?>>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<header class="header">
 		<div class="top_social">
 			<div class="container text-right ">
