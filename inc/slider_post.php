@@ -1,5 +1,5 @@
 <div class="container tablet">
-		<div id="destacados-wraper" class="text-left">
+	<div id="destacados-wraper" class="text-left">
 			<div id="content-owl">
 				<div id="owl-slider" class="owl-carousel owl-theme ">
 					<?php 
@@ -27,8 +27,6 @@
 				<span class="prev icon-izquierda slider-nav"></span>
 				<span class="next icon-derecha slider-nav"></span>
 			</div>
-			
 			<?php get_sidebar('destacados'); ?>
-			
-		</div>
 	</div>
+</div>

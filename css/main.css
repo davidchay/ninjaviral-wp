@@ -617,7 +617,7 @@ figcaption {
   background-color: #111;
   color: #fff;
   font-size: 0.8rem;
-  padding: 1rem 0;
+  padding: 1rem 0 3.8rem 0;
 }
 .input-search {
   font-family: 'icomoon';
@@ -684,6 +684,21 @@ figcaption {
   text-transform: uppercase;
   top: 3.5rem;
   width: 90%;
+}
+.menu-footer.menu {
+  margin-bottom: 1rem;
+}
+.menu-footer.menu .menu-item {
+  text-transform: uppercase;
+  background: none;
+}
+.menu-footer.menu .menu-item a {
+  font-size: 0.8rem;
+  background: none;
+  color: #c32700;
+}
+.menu-footer.menu .menu-item a:hover {
+  text-decoration: underline;
 }
 .nav-principal {
   margin: 3rem 0;
@@ -762,6 +777,32 @@ figcaption {
   overflow: hidden;
   right: 0;
   bottom: -2.8rem;
+}
+.semi-circle {
+  background: rgba(195,39,0,0.5);
+  -webkit-border-radius: 100px 100px 0 0;
+  border-radius: 100px 100px 0 0;
+  display: none;
+  height: 40px;
+  position: fixed;
+  width: 80px;
+  z-index: 1900;
+  bottom: 0;
+  left: 50%;
+  margin-left: -40px;
+}
+.semi-circle .go-to-sky {
+  color: #fff;
+  display: block;
+  font-size: 1.2rem;
+  height: 40px;
+  line-height: 2.5;
+  text-align: center;
+  width: 80px;
+  right: 0;
+}
+.semi-circle:hover {
+  background: #c32700;
 }
 .conito {
   position: absolute;

@@ -2,13 +2,43 @@
 	define('DIRECTORIO', get_bloginfo('stylesheet_directory'));
 	define('IMAGENES', DIRECTORIO.'/images');
 	define('DIRFUNCTIONS', TEMPLATEPATH.'/functions/');
+	define('INCLUYE', TEMPLATEPATH.'/inc/');
 
 	/*esconde la barra de administracion*/
 	show_admin_bar( false );
 
+	/*Agregando scripts y estilos*/
+	add_filter("wp_enqueue_scripts","scripts_y_stilos");
+	function scripts_y_stilos(){
+		//wp_enqueue_script( "jquery" );
+		wp_deregister_script("jquery");
+    	wp_register_script("jquery", get_template_directory_uri()."/js/jquery.min.js");
+    	wp_enqueue_script("jquery");
+		wp_register_script("main-js",  get_template_directory_uri()."/js/main.js", "jquery" );
+		wp_enqueue_script("main-js");
+		
+		wp_enqueue_style( "main-css",  get_template_directory_uri()."/css/main.css" );
+
+		if(is_home()){
+			wp_register_script( "owl-carousel",  get_template_directory_uri()."/js/owl.carousel.min.js","jquery",true);
+			wp_enqueue_script( "owl-carousel" );
+			wp_register_script( "owl-config", get_template_directory_uri()."/js/owl-config.js","owl-carousel",true);
+			wp_enqueue_script( "owl-config" );
+			wp_enqueue_style( "carousel-css",  get_template_directory_uri()."/css/owl.carousel.css","carousel-css");
+			wp_enqueue_style( "owl-theme-css",  get_template_directory_uri()."/css/owlTheme.css");
+		}
+		
+		if(!is_single() && !is_page()){
+			wp_register_script( "func-infinite-scroll",  get_template_directory_uri(). "/js/infinite-scroll.js", "jquery"  );
+			wp_enqueue_script( "func-infinite-scroll" );
+		}
+
+		wp_enqueue_style( "Merriweather", '//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900italic,900,300italic,300', false, null);
+		wp_enqueue_style( "Open-Sans", '//fonts.googleapis.com/css?family=Open+Sans', false, null);
+	}
+
 	/*Cargar funciones*/
 	require_once (DIRFUNCTIONS.'post-views.php');
-	require_once (DIRFUNCTIONS.'post-relacionados.php');
 	require_once (DIRFUNCTIONS.'widgets.php');
 
 	/*Registrar sidebar*/
@@ -36,8 +66,8 @@
 	function register_menus() {
 	  register_nav_menus(
 	    array(
-	      'principal-menu' => __( 'Menu Principal' ),
-	      'extra-menu' => __( 'Extra Menu' )
+	      'principal-menu' => 'Menu Principal',
+	      'footer-menu' => 'Menu en pie de pagina'
 	    )
 	  );
 	}
@@ -97,4 +127,64 @@
 	}
 add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
 add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
+
+/*Opciones del theme*/
+/*
+ * Loads the Options Panel
+ *
+ * If you're loading from a child theme use stylesheet_directory
+ * instead of template_directory
+ */
+
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/options-framework/' );
+require_once dirname( __FILE__ ) . '/options-framework/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
+
+/*
+ * This is an example of how to add custom scripts to the options panel.
+ * This one shows/hides the an option when a checkbox is clicked.
+ *
+ * You can delete it if you not using that option
+ */
+add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts' );
+
+
+
+function optionsframework_custom_scripts() { ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	jQuery('#example_showhidden').click(function() {
+  		jQuery('#section-example_text_hidden').fadeToggle(400);
+	});
+
+	if (jQuery('#example_showhidden:checked').val() !== undefined) {
+		jQuery('#section-example_text_hidden').show();
+	}
+
+});
+</script>
+
+<?php
+}
+
+/*
+ * This is an example of filtering menu parameters
+ */
+
+/*
+function prefix_options_menu_filter( $menu ) {
+	$menu['mode'] = 'menu';
+	$menu['page_title'] = __( 'Hello Options', 'textdomain');
+	$menu['menu_title'] = __( 'Hello Options', 'textdomain');
+	$menu['menu_slug'] = 'hello-options';
+	return $menu;
+}
+
+add_filter( 'optionsframework_menu', 'prefix_options_menu_filter' );
+*/
 ?>

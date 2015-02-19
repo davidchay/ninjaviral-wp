@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php 
 	if(is_home()){ 
-		include(TEMPLATEPATH.'/slider_post.php'); 
+		include(INCLUYE.'/slider_post.php'); 
 	} 
 ?>
 	<div id="container-post-home" class="container margin-v text-left">

@@ -46,12 +46,12 @@
 
 			</article>
 			<div class="post-sugeridos">
-				<?php include(DIRFUNCTIONS.'post-relacionados.php'); ?>
+				<?php include(INCLUYE.'post-relacionados.php'); ?>
 			</div>
-			<h3>Commentarios</h3>
-			<fb:comments-count href=<?php the_permalink(); ?>></fb:comments-count> Comentarios. 
+			<h3>Escribe un commentario</h3>
 			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light">
 			</div>
+
 		</div>
 		<?php get_sidebar(); ?>
 		
