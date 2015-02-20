@@ -1,13 +1,6 @@
 (function($){
 	/*efectos menu movil*/
-	$('.show-menu').on("click",function(event){
-		$(this).toggleClass( "show-menu-on" );
-		$(".menu-principal").toggle(100);
-
-	});
-	$('.search-top').on("click",function(event){
-		$("#show-search-box").toggle(190);
-	});
+	
 	$( window ).resize(function() {
 		if($(document).width()>767){
 			$(".menu-principal").removeAttr("style");
@@ -38,5 +31,14 @@ $(document).ready(function(){
 	$('a#irArriba').click(function(e){
 		e.preventDefault(e);
 		$('html, body').stop().animate({scrollTop: $($(this).attr('href')).offset().top}, 1000);
+	});
+
+	$('.show-menu').on("click",function(event){
+		$(this).toggleClass( "show-menu-on" );
+		$(".menu-principal").toggle(100);
+
+	});
+	$('.search-top').on("click",function(event){
+		$("#show-search-box").toggle(190);
 	});
 });

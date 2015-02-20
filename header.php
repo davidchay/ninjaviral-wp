@@ -50,21 +50,41 @@
 						</div>
 				</div>
 				<ul class="menu">
+					<?php $url_twitter=of_get_option('url_twitter','');
+					?>
+					<?php if($url_twitter){?>
 					<li class="social-item">
-						<a href="#"class="bg-twitter icon-twitter"></a>
+						<a href="<?php echo $url_twitter; ?>" target="_blank" class="bg-twitter icon-twitter"></a>
 					</li>
+					<?php } ?>
+					<?php $url_facebook=of_get_option('url_facebook',''); ?>
+					<?php if($url_facebook){ ?>
 					<li class="social-item">
-						<a href="#"class="bg-facebook icon-facebook"></a>
+						<a href="<?php echo $url_facebook; ?>" target="_blank" class="bg-facebook icon-facebook"></a>
 					</li>
+					<?php } ?>
+					<?php $url_linkedin=of_get_option('url_linkedin',''); ?>
+					<?php if($url_linkedin){ ?>
 					<li class="social-item">
-						<a href="#"class="bg-linkedin icon-linkedin"></a>
+						<a href="<?php echo $url_linkedin; ?>" target="_blank" class="bg-linkedin icon-linkedin"></a>
 					</li>
+					<?php } ?>
+					<?php $url_pinterest=of_get_option('url_pinterest',''); ?>
+					<?php if($url_pinterest){ ?>
 					<li class="social-item">
-						<a href="#"class="bg-pinterest icon-pinterest"></a>
+						<a href="<?php echo $url_pinterest; ?>" target="_blank" class="bg-pinterest icon-pinterest"></a>
 					</li>
+					<?php } ?>
+					<?php $url_rss=of_get_option('url_rss',''); ?>
+					<?php if($url_rss){ ?>
 					<li class="social-item">
-						<a href="#"class="bg-rss icon-rss"></a>
+						<a href="<?php echo $url_rss; ?>" target="_blank" class="bg-rss icon-rss"></a>
 					</li>
+					<?php }else{ ?>
+					<li class="social-item">
+						<a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="bg-rss icon-rss"></a>
+					</li>
+					<?php } ?>
 				</ul>
 				
 
@@ -73,17 +93,29 @@
 		<div id="header-wrap" class="container relative margin-v">
 			<a href="#" class="show-menu"></a>
 			<div class="anuncio-top desktop">
-				<img src="http://dummyimage.com/721x90/e84b6f/fff&text=Anuncio" alt="ANUNCIO 721 x 90">	
+				<?php $adsense_codigo= of_get_option('anuncio_970x90'); 
+						echo $adsense_codigo;
+				?>
+
 			</div>
 			<div class="logo">
+				<?php $logo_uploader=of_get_option('logo_uploader', get_bloginfo('stylesheet_directory').'/image/logo-ninja.jpg'); ?>
 				<?php if(is_home()): ?>
 				<h1><a href="<?php bloginfo('url'); ?>">
-				  <img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+						<?php if($logo_uploader){?>
+							<img src="<?php echo $logo_uploader; ?>" class="logo-image" alt="NinjaViral">
+						<?php }else{?>
+							<img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+						<?php }?>
 					</a>
 				</h1>
 				<?php else: ?>
 					<a href="<?php bloginfo('url'); ?>">
-				 	 <img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+				 	 	<?php if($logo_uploader){?>
+							<img src="<?php echo $logo_uploader; ?>" class="logo-image" alt="NinjaViral">
+						}else{?>
+							<img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+						<?php }?>
 					</a>
 				<?php endif; ?>	
 
@@ -101,4 +133,3 @@
 			</nav>
 		</div>
 	</header>
-	
