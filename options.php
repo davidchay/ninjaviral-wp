@@ -3,13 +3,17 @@ function optionsframework_option_name() {
 	return 'options-framework-theme';
 }
 function optionsframework_options() {
- 	$options = array();
-
+	// Pull all the categories into an array
+			$color_categories = array();
+			$color_categories_obj = get_categories();
+			foreach ($color_categories_obj as $category) {
+				$color_categories[$category->cat_ID] = $category->cat_name;
+			}
 	/********************* 
 		GENREALES
 	**********************/
 	$options[] = array(
-     'name' => __('Configuración General', 'options_framework_theme'),
+     'name' => __('General', 'options_framework_theme'),
      'type' => 'heading');
 
 		//Cambio del logo
@@ -26,6 +30,24 @@ function optionsframework_options() {
 			    'placeholder' => 'UA-XXXXX-X',
 			    'class' => 'mini',
 				'type' => 'text');
+			$wp_editor_settings = array(
+				'wpautop' => true, // Default
+				'textarea_rows' => 5,
+				'tinymce' => array( 'plugins' => 'wordpress' )
+			);
+			$options[] = array(
+				'name' => __( 'Adsense: Skyscraper horizontal grande (970 x 90)', 'theme-textdomain' ),
+				'desc' => __( 'Introduce el codigo de Adsense para el anuncio en la parte superior. Skyscraper (970 x 90)', 'theme-textdomain' ),
+				'id' => 'anuncio_970x90',
+				'type' => 'editor',
+				'settings' => $wp_editor_settings
+			);
+	/********************* 
+		Social
+	**********************/
+	$options[] = array(
+     'name' => __('Redes Sociales', 'options_framework_theme'),
+     'type' => 'heading');
 
 			$options[] = array(
 			    'name' => __('URL Facebook', 'options_check'),
@@ -63,49 +85,36 @@ function optionsframework_options() {
 			    'placeholder' => get_bloginfo_rss('rss2_url'),
 			    'type' => 'text');
 
-			$wp_editor_settings = array(
-				'wpautop' => true, // Default
-				'textarea_rows' => 5,
-				'tinymce' => array( 'plugins' => 'wordpress' )
-			);
-			$options[] = array(
-				'name' => __( 'Adsense: Skyscraper horizontal grande (970 x 90)', 'theme-textdomain' ),
-				'desc' => __( 'Introduce el codigo de Adsense para el anuncio en la parte superior. Skyscraper (970 x 90)', 'theme-textdomain' ),
-				'id' => 'anuncio_970x90',
-				'type' => 'editor',
-				'settings' => $wp_editor_settings
-			);
+			
 	/********************* 
-		AVANZADAS
+		Social
 	**********************/
 	$options[] = array(
-	     'name' => __('Configuración Avanzada', 'options_framework_theme'),
-	     'type' => 'heading' );
+     'name' => __('Categorias', 'options_framework_theme'),
+     'type' => 'heading');
+	
 
-			$options[] = array(
-				'name' => __( 'Check to Show a Hidden Text Input', 'theme-textdomain' ),
-				'desc' => __( 'Click here and see what happens.', 'theme-textdomain' ),
-				'id' => 'example_showhidden',
-				'type' => 'checkbox'
-			);
-
-			$options[] = array(
-				'name' => __( 'Hidden Text Input', 'theme-textdomain' ),
-				'desc' => __( 'This option is hidden unless activated by a checkbox click.', 'theme-textdomain' ),
-				'id' => 'example_text_hidden',
-				'std' => 'Hello',
-				'class' => 'hidden',
-				'type' => 'text'
-			);
-			
-			 for($i=0;$i<3;$i++){
-			 	$options[] = array(
-			    'name' => __('URL LinkedIn', 'options_check'),
-			    'desc' => __('Introduce la url de linkedin.', 'options_check'),
-			    'id' => 'url_linkedin'.$i,
-			    'placeholder' => 'http://www.linkedin.com/',
-			    'type' => 'text');
-			 }
+			foreach ($color_categories as $id_cat => $name_cat) {
+				$options[] = array(
+					'name' => __( $name_cat, 'theme-textdomain' ),
+					'desc' => __( "Selecciona el color del enlace de la categoria ".$name_cat, 'theme-textdomain' ),
+					'id'=>'link-cat-'.$id_cat,
+					'type' => 'color'
+				);
+			}
+	/********************* 
+		Slider
+	**********************/
+	$options[] = array(
+     'name' => __('Slider', 'options_framework_theme'),
+     'type' => 'heading');
+	
+	/********************* 
+		Comentarios facebook
+	**********************/
+	$options[] = array(
+     'name' => __('Comentarios de facebook', 'options_framework_theme'),
+     'type' => 'heading');
 
 	return $options;
 }

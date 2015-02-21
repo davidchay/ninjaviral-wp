@@ -35,8 +35,8 @@
 
 		wp_enqueue_style( "Merriweather", '//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900italic,900,300italic,300', false, null);
 		wp_enqueue_style( "Open-Sans", '//fonts.googleapis.com/css?family=Open+Sans', false, null);
+		wp_enqueue_style('my-dynamic-css', get_stylesheet_directory_uri().'/inc/css.php');
 	}
-
 	/*Cargar funciones*/
 	require_once (DIRFUNCTIONS.'post-views.php');
 	require_once (DIRFUNCTIONS.'widgets.php');
@@ -89,7 +89,7 @@
 		$offset = $_POST['offset'];
 		$posts_per_page  = get_option('posts_per_page');
 	 	$args=array(
-	 			'post_type' => 'post',
+	 			//'post_type' => 'post',
 	 			'posts_per_page'=>$posts_per_page,
                 'offset'=>$offset
             );

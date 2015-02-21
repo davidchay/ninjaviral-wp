@@ -20,7 +20,6 @@
  	<?php include(INCLUYE.'favicons.php'); ?>
  	<?php wp_head(); ?>
 </head>
-
 <body id="top" <?php body_class();?>>
 	<?php if(is_single() ||is_page()){ ?>
 		<div id="fb-root"></div>
@@ -113,7 +112,7 @@
 					<a href="<?php bloginfo('url'); ?>">
 				 	 	<?php if($logo_uploader){?>
 							<img src="<?php echo $logo_uploader; ?>" class="logo-image" alt="NinjaViral">
-						}else{?>
+						<?php }else{?>
 							<img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
 						<?php }?>
 					</a>

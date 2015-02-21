@@ -10,7 +10,7 @@
 				?>
 				<div class="etiquetas tablet mayus">
 					<?php $category=get_the_category( $post_id ); ?>
-					<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link_cat_<?php echo $category[0]->term_id;?> ctegory"><?php echo $category[0]->name;?></a>
+					<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link-cat-<?php echo $category[0]->term_id;?> ctegory"><?php echo $category[0]->name;?></a>
 				</div>
 				<header>
 					<h1><?php the_title(); ?></h1>

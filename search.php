@@ -28,7 +28,7 @@
 						</a>
 						<span class="info-post tablet mayus">
 							<?php $category=get_the_category( $post_id ); ?>
-							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link_cat_<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> <?php echo getPostViews(get_the_ID()); ?></span>
+							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link-cat-<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> <?php echo getPostViews(get_the_ID()); ?></span>
 						<h2 class="titulo_post">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
 								<?php the_title(); ?>
