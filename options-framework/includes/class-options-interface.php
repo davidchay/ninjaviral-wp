@@ -150,6 +150,20 @@ class Options_Framework_Interface {
 				$output .= '</select>';
 				break;
 
+			//Selectbygroup
+			case 'selectgroup';
+				$output.='<select class="of-input" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" id="' . esc_attr( $value['id'] ) . '">';
+				foreach ($value['options'] as $key => $option)
+				{
+		      		$output.= '<optgroup label="'.$key.'">';
+		      			foreach ($option as  $ky => $op) {
+		          			$output.= '<option'. selected( $val, $ky, false ) .' value="' . esc_attr( $ky ) . '">' . esc_html( $op ) . '</option>';
+		      			}   
+		      		$output.= '</optgroup>';
+				}
+
+				$output.='</select>';
+				break;
 
 			// Radio Box
 			case "radio":

@@ -28,6 +28,9 @@ add_filter( 'of_sanitize_password', 'sanitize_text_field' );
  */
 add_filter( 'of_sanitize_select', 'of_sanitize_enum', 10, 2 );
 
+
+add_filter( 'of_sanitize_selectgroup', 'of_sanitize_selectgroup', 10, 2 );
+
 /**
  * Sanitization for radio input
  *
@@ -173,6 +176,21 @@ function of_sanitize_enum( $input, $option ) {
 	}
 	return $output;
 }
+
+function of_sanitize_selectgroup( $input, $option ) {
+	$output = '';
+
+	foreach ($option['options'] as $key => $op)
+	{
+		if ( array_key_exists( $input, $op ) ) {
+			$output = $input;
+			break;
+		}
+	}
+
+	return $output;
+}
+
 
 /**
  * Sanitization for background option.

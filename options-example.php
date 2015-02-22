@@ -99,7 +99,7 @@ function optionsframework_options() {
 		'name' => __( 'Basic Settings', 'theme-textdomain' ),
 		'type' => 'heading'
 	);
-
+	
 	$options[] = array(
 		'name' => __( 'Input Text Mini', 'theme-textdomain' ),
 		'desc' => __( 'A mini text input field.', 'theme-textdomain' ),

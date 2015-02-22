@@ -38,6 +38,7 @@
 			
 				<?php 
 					endwhile;
+					get_the_post_navigation();
 					else: ?>
 					<h2>Lo sentimos pero no se encntro ninguna entrada</h2>
 				<?php
@@ -49,9 +50,7 @@
 				<?php include(INCLUYE.'post-relacionados.php'); ?>
 			</div>
 			<h3>Escribe un commentario</h3>
-			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light">
-			</div>
-
+			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-numposts="5" data-colorscheme="light"></div>
 		</div>
 		<?php get_sidebar(); ?>
 		

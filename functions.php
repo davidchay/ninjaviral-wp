@@ -33,9 +33,9 @@
 			wp_enqueue_script( "func-infinite-scroll" );
 		}
 
+		wp_enqueue_style('my-dynamic-css', get_stylesheet_directory_uri().'/inc/css.php');
 		wp_enqueue_style( "Merriweather", '//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900italic,900,300italic,300', false, null);
 		wp_enqueue_style( "Open-Sans", '//fonts.googleapis.com/css?family=Open+Sans', false, null);
-		wp_enqueue_style('my-dynamic-css', get_stylesheet_directory_uri().'/inc/css.php');
 	}
 	/*Cargar funciones*/
 	require_once (DIRFUNCTIONS.'post-views.php');
@@ -72,6 +72,9 @@
 	  );
 	}
 	add_action( 'init', 'register_menus' );
+
+	/*Activar paginacion*/
+	add_theme_support( 'title-tag' );
 
 	/*Activar thumpnails*/
 	if(function_exists(add_theme_support)){
@@ -113,7 +116,7 @@
 						</a>
 						<span class="info-post tablet mayus">
 							<?php $category=get_the_category( $post_id ); ?>
-							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link_cat_<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> <?php echo getPostViews(get_the_ID()); ?></span>
+							<a href="<?php echo get_category_link($category[0]->term_id); ?>" class="link-cat-<?php echo $category[0]->term_id;?>"><?php echo $category[0]->name;?></a><span class="desktop"> | POR <?php the_author_posts_link(); ?></span> | <span class="icon-ojo"></span> <?php echo getPostViews(get_the_ID()); ?></span>
 						<h2 class="titulo_post">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
 								<?php the_title(); ?>
@@ -158,12 +161,14 @@ function optionsframework_custom_scripts() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function() {
 
-	jQuery('#example_showhidden').click(function() {
-  		jQuery('#section-example_text_hidden').fadeToggle(400);
+	jQuery('#slider-on').click(function() {
+  		jQuery('#section-num_post').fadeToggle(400);
+  		jQuery('#section-contenido_slider').fadeToggle(400);
 	});
 
-	if (jQuery('#example_showhidden:checked').val() !== undefined) {
-		jQuery('#section-example_text_hidden').show();
+	if (jQuery('#slider-on:checked').val() !== undefined) {
+		jQuery('#section-num_post').show();
+		jQuery('#section-contenido_slider').show();
 	}
 
 });

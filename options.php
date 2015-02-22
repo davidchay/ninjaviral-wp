@@ -9,6 +9,30 @@ function optionsframework_options() {
 			foreach ($color_categories_obj as $category) {
 				$color_categories[$category->cat_ID] = $category->cat_name;
 			}
+
+			// Pull all the categories into an array
+			$options_categories = array();
+			$options_categories_obj = get_categories();
+			foreach ($options_categories_obj as $category) {
+				$options_categories[$category->cat_ID] = $category->cat_name;
+			}
+			$reciente=array(
+					'recientes'=>'RECIENTES'
+			);
+			$masvisto=array(
+				'semana'=>'DE LA SEMANA',
+				'mes'=>'DEL MES',
+				'anio'=>'DEL AÑO',
+			);
+			$optionGroup=array(
+					'RECIENTES'=>$reciente,
+					'MAS VISTO'=>$masvisto,
+					'CATEGORIAS'=>$options_categories
+			);
+			$cantidadpost=array();	
+			for ($i=2; $i < 8; $i++) { 
+				$cantidadpost[$i]=$i;	
+			}
 	/********************* 
 		GENREALES
 	**********************/
@@ -106,8 +130,44 @@ function optionsframework_options() {
 		Slider
 	**********************/
 	$options[] = array(
-     'name' => __('Slider', 'options_framework_theme'),
+     'name' => __('Slider', 'theme-textdomain'),
      'type' => 'heading');
+
+	/*$options[] = array(
+     'name' => __('Sdlkdjldkjdljdlider', 'theme-textdomain'),
+     'type' => 'info');*/
+			
+			
+			$options[] = array(
+				'name' => __( 'Activar slider', 'theme-textdomain' ),
+				'desc' => __( 'Marca si deseas activar el slider', 'theme-textdomain' ),
+				'id' => 'slider-on',
+				'std' => '1',
+				'type' => 'checkbox'
+			);
+
+			$options[] = array(
+					'name' => __( 'Post a mostrar', 'theme-textdomain' ),
+					'desc' => __( 'Selecciona el numero de post a mostrar en el slider', 'theme-textdomain' ),
+					'id' => 'num_post',
+					'type' => 'select',
+					'std' => '3',
+					'class' => 'hidden',
+					'options' => $cantidadpost
+				);
+
+			if ( $optionGroup ) {
+				$options[] = array(
+					'name' => __( 'Selecciona una opción', 'theme-textdomain' ),
+					'desc' => __( 'Selelcciona el tipo de contenido para el slider', 'theme-textdomain' ),
+					'id' => 'contenido_slider',
+					'type' => 'selectgroup',
+					'std' => 'mes',
+					'class' => 'hidden',
+					'options' => $optionGroup
+				);
+			}
+
 	
 	/********************* 
 		Comentarios facebook
@@ -116,6 +176,49 @@ function optionsframework_options() {
      'name' => __('Comentarios de facebook', 'options_framework_theme'),
      'type' => 'heading');
 
+			$options[] = array(
+			    'name' => __('Aplication ID', 'options_check'),
+			    'desc' => __('Introduce el ID de tu aplicacion de facebook.', 'options_check'),
+			    'id' => 'aplication_id',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
+
+			$options[] = array(
+			    'name' => __('ID usuario facebook', 'options_check'),
+			    'desc' => __('Introduce el ID de tu cuenta de usuario para administrar los comentarios de facebook.', 'options_check'),
+			    'id' => 'id_facebook_1',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
+			$options[] = array(
+			    'name' => __('ID usuario facebook', 'options_check'),
+			    'desc' => __('Introduce el ID de tu cuenta de usuario para administrar los comentarios de facebook.', 'options_check'),
+			    'id' => 'id_facebook_2',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
+			$options[] = array(
+			    'name' => __('ID usuario facebook', 'options_check'),
+			    'desc' => __('Introduce el ID de tu cuenta de usuario para administrar los comentarios de facebook.', 'options_check'),
+			    'id' => 'id_facebook_3',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
+			$options[] = array(
+			    'name' => __('ID usuario facebook', 'options_check'),
+			    'desc' => __('Introduce el ID de tu cuenta de usuario para administrar los comentarios de facebook.', 'options_check'),
+			    'id' => 'id_facebook_4',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
+			$options[] = array(
+			    'name' => __('ID usuario facebook', 'options_check'),
+			    'desc' => __('Introduce el ID de tu cuenta de usuario para administrar los comentarios de facebook.', 'options_check'),
+			    'id' => 'id_facebook_5',
+			    'placeholder' => 'xxxxxxxxxx',
+			    'class' => 'mini',
+				'type' => 'text');
 	return $options;
 }
 

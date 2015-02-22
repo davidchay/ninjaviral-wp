@@ -17,7 +17,9 @@
 		Historias que inspiran diariamente <br>
 		&copy; Copyright <?php echo date('Y'); ?>
 	</footer>
-	
+	<!--
+	<link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_directory');?>/inc/css.php">
+	-->
 <script type="text/javascript">
 	
 	post_offset = increment = <?php echo get_option( 'posts_per_page' );?>;

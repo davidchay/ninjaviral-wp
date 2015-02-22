@@ -4,11 +4,38 @@
 	<meta charset="<?php bloginfo('charset'); ?>"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
-	<!-- Agrega la id application facebook-->
-	<meta property="fb:app_id" content="{YOUR_APPLICATION_ID}">
-	<!-- Agrega la id de usuarios administradores -->
-	<meta property="fb:admins" content="{YOUR_FACEBOOK_USER_ID}"/>
 	
+	<!-- Agrega la id de usuarios administradores -->
+	<?php $id_facebook_1=of_get_option('id_facebook_1',''); 
+	if($id_facebook_1){ ?>
+	<meta property="fb:admins" content="<?php echo $id_facebook_1; ?>"/>
+	<?php } ?>
+	<?php $id_facebook_2=of_get_option('id_facebook_2',''); 
+	if($id_facebook_2){ ?>
+	<meta property="fb:admins" content="<?php echo $id_facebook_2; ?>"/>
+	<?php } ?>
+	
+	<?php $id_facebook_3=of_get_option('id_facebook_3',''); 
+	if($id_facebook_3){ ?>
+	<meta property="fb:admins" content="<?php echo $id_facebook_3; ?>"/>
+	<?php } ?>
+	
+	<?php $id_facebook_4=of_get_option('id_facebook_4',''); 
+	if($id_facebook_4){ ?>
+	<meta property="fb:admins" content="<?php echo $id_facebook_4; ?>"/>
+	<?php } ?>
+	
+	<?php $id_facebook_5=of_get_option('id_facebook_5',''); 
+	if($id_facebook_5){ ?>
+	<meta property="fb:admins" content="<?php echo $id_facebook_5; ?>"/>
+	<?php } ?>
+	
+	<!-- Agrega la id application facebook-->
+	<?php $aplication_id=of_get_option('aplication_id',''); 
+		if($aplication_id){ ?>
+		<?php echo $application_id;?>
+	<meta property="fb:app_id" content="<?php echo $aplication_id; ?>">
+	<?php } ?> 
 	<title><?php bloginfo('name'); ?><?php wp_title();?></title>
 
 	<meta name="description" content=""/>
@@ -21,13 +48,13 @@
  	<?php wp_head(); ?>
 </head>
 <body id="top" <?php body_class();?>>
-	<?php if(is_single() ||is_page()){ ?>
+	<?php if(is_single() || is_page()){ ?>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+		  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=1591466181090634&version=v2.0";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 	<?php } ?>

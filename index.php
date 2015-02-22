@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 <?php 
 	if(is_home()){ 
-		include(INCLUYE.'/slider_post.php'); 
+		$activado=of_get_option('slider-on','no entry');
+		if($activado=='1'){
+			include(INCLUYE.'/slider_post.php'); 
+		}
 	} 
 ?>
 	<div id="container-post-home" class="container margin-v text-left">
@@ -31,6 +34,7 @@
 						</h2>
 					</div>
 				<?php endwhile; ?>
+				
 			<?php else: ?>
 				<p><?php  _e('No se encontro ninguna entrada en este sitio, lo sentimos!'); ?> </p>
 			<?php endif; 
