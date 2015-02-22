@@ -1,6 +1,6 @@
 <?php
 	define('DIRECTORIO', get_bloginfo('stylesheet_directory'));
-	define('IMAGENES', DIRECTORIO.'/images');
+	define('IMAGENES', DIRECTORIO.'/images/');
 	define('DIRFUNCTIONS', TEMPLATEPATH.'/functions/');
 	define('INCLUYE', TEMPLATEPATH.'/inc/');
 

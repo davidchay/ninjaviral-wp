@@ -131,7 +131,7 @@
 						<?php if($logo_uploader){?>
 							<img src="<?php echo $logo_uploader; ?>" class="logo-image" alt="NinjaViral">
 						<?php }else{?>
-							<img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+							<img src="<?php echo IMAGENES; ?>logo-ninja.jpg" class="logo-image" alt="NinjaViral">
 						<?php }?>
 					</a>
 				</h1>
@@ -140,7 +140,7 @@
 				 	 	<?php if($logo_uploader){?>
 							<img src="<?php echo $logo_uploader; ?>" class="logo-image" alt="NinjaViral">
 						<?php }else{?>
-							<img src="<?php echo IMAGENES; ?>/logo-ninja.jpg" class="logo-image" alt="NinjaViral">
+							<img src="<?php echo IMAGENES; ?>logo-ninja.jpg" class="logo-image" alt="NinjaViral">
 						<?php }?>
 					</a>
 				<?php endif; ?>	

@@ -756,6 +756,9 @@ figcaption {
 .post-suggest:nth-child(even) {
   margin-right: 0;
 }
+.post_home {
+  width: 100%;
+}
 .post-meta {
   overflow: hidden;
   border-bottom: 3px solid #b4b5b7;
