@@ -678,12 +678,8 @@ figcaption {
   clear: both;
   display: none;
   font-size: 0;
-  left: 0.813rem;
-  max-width: 18.125rem;
-  position: absolute;
   text-transform: uppercase;
-  top: 3.5rem;
-  width: 90%;
+  width: 100%;
 }
 .menu-footer.menu {
   margin-bottom: 1rem;
@@ -699,9 +695,6 @@ figcaption {
 }
 .menu-footer.menu .menu-item a:hover {
   text-decoration: underline;
-}
-.nav-principal {
-  margin: 3rem 0;
 }
 .ninja {
   font-size: 2.5rem;
@@ -868,11 +861,9 @@ figcaption {
 .show-menu {
   color: #000;
   font-family: icomoon;
-  font-size: 1rem;
+  font-size: 2rem;
   left: 0.813rem;
-  padding: 0.5em;
-  position: absolute;
-  top: 1.5rem;
+  padding: 0.12em;
 }
 .show-menu:before {
   content: "\e607";
@@ -880,6 +871,7 @@ figcaption {
 .show-menu-on {
   background: #000;
   color: #fff;
+  font-size: 1.6rem;
 }
 .show-menu-on:before {
   content: "";
@@ -1066,6 +1058,15 @@ figcaption {
 }
 #show-search-box {
   display: none;
+}
+@media screen and (min-width: 480px) {
+  .post_home {
+    margin-right: 3%;
+    width: 48.5%;
+  }
+  .post_home:nth-child(even) {
+    margin-right: 0;
+  }
 }
 @media screen and (min-width: 767px) {
   .logo {

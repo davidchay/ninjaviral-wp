@@ -35,9 +35,13 @@ $(document).ready(function(){
 
 	$('.show-menu').on("click",function(event){
 		$(this).toggleClass( "show-menu-on" );
-		$(".menu-principal").toggle(100);
+		//$(".menu-principal").toggle(300);
+		$(".menu-principal").slideToggle(300);
 
 	});
+
+
+
 	$('.search-top').on("click",function(event){
 		$("#show-search-box").toggle(190);
 	});

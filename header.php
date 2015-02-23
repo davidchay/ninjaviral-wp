@@ -117,7 +117,6 @@
 			</div>
 		</div>
 		<div id="header-wrap" class="container relative margin-v">
-			<a href="#" class="show-menu"></a>
 			<div class="anuncio-top desktop">
 				<?php $adsense_codigo= of_get_option('anuncio_970x90'); 
 						echo $adsense_codigo;
@@ -146,6 +145,7 @@
 				<?php endif; ?>	
 
 			</div>
+			<a href="#" class="show-menu"></a>
 			<nav class="nav-principal">
 				<?php 
 					$menu = array( 

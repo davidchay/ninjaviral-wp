@@ -191,12 +191,12 @@ figcaption
 	clear both
 	display none
 	font-size 0
-	left 0.813rem
-	max-width 18.125rem
-	position absolute
+	//left 0.813rem
+	//max-width 18.125rem
+	//position absolute
 	text-transform uppercase
-	top 3.5rem
-	width 90%
+	//top 3.5rem
+	width 100%
 .menu-footer
 	&.menu
 		margin-bottom 1rem
@@ -210,7 +210,7 @@ figcaption
 				&:hover
 					text-decoration underline
 .nav-principal
-	margin 3rem 0
+	//margin 3rem 0
 			
 .ninja
 	font-size 2.5rem
@@ -348,17 +348,18 @@ figcaption
 .show-menu
 	color black
 	font-family icomoon
-	font-size 1rem
+	font-size 2rem
 	left 0.813rem
-	padding .5em
-	position absolute
-	top 1.5rem
+	padding .12em
+	//position absolute
+	//top 1.5rem
 	&:before
 		content: "\e607"
 		
 .show-menu-on
 	background black
 	color white
+	font-size 1.6rem
 	&:before
 		content: ""
 		content: "\e603";	
@@ -518,6 +519,13 @@ figcaption
 		bottom 0
 #show-search-box
 	display none
+@media screen and (min-width:480px) 
+	.post_home
+		margin-right 3%
+		width 48.5%
+		&:nth-child(even)
+			margin-right 0
+		
 	
 @media screen and (min-width:767px) 
 	.logo

@@ -1,8 +1,9 @@
+
 	<div id="goTop" class="semi-circle">
 		<a id="irArriba" href="#top" class="go-to-sky icon-arriba"></a>
 	</div>	
 	<footer id="footer" class="footer text-center">
-		<div id="menu-secundario">
+		<div id="menu-secundario" class="desktop">
 			<?php 
 			$footer_menu = array( 
 						'theme_location' => 'footer-menu',
@@ -21,13 +22,10 @@
 	<link rel="stylesheet" href="<?php echo get_bloginfo('stylesheet_directory');?>/inc/css.php">
 	-->
 <script type="text/javascript">
-	
 	post_offset = increment = <?php echo get_option( 'posts_per_page' );?>;
 	total = <?php echo $wp_query->max_num_pages;?>;
-	
 </script>
 	<!-- Include js plugin -->
-	
 	<?php wp_footer(); ?>
 	<?php 
 		$google_analytics=of_get_option('google_analytics', 'UA-XXXXX-X');
