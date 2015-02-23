@@ -938,7 +938,8 @@ figcaption {
 /*OWL SLIDER*/
 #content-owl {
   position: relative;
-  width: 100%;
+  width: 66.25%;
+  margin-right: 1.25%;
   height: auto;
   display: inline-block;
 }
@@ -983,7 +984,7 @@ figcaption {
   top: 60%;
 }
 #sidebar-baner {
-  display: none;
+  display: inline-block;
   height: 350px;
   overflow: hidden;
   text-align: left;
@@ -1172,13 +1173,6 @@ figcaption {
   .post_home h2 {
     font-size: 1.25rem;
     font-weight: 900;
-  }
-  #content-owl {
-    width: 66.25%;
-    margin-right: 1.25%;
-  }
-  #sidebar-baner {
-    display: inline-block;
   }
 }
 @-moz-keyframes fadein {
