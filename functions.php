@@ -92,7 +92,6 @@
 		$offset = $_POST['offset'];
 		$posts_per_page  = get_option('posts_per_page');
 	 	$args=array(
-	 			//'post_type' => 'post',
 	 			'posts_per_page'=>$posts_per_page,
                 'offset'=>$offset
             );

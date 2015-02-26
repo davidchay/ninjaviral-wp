@@ -11,11 +11,11 @@
 	});
 	/*Menu flotante*/
 	$(window).bind('scroll',function(){
-		if($(window).scrollTop()>255){
+		/*if($(window).scrollTop()>255){
 			$('.menu-principal').addClass("menu-flotante");
 		}else{
 			$('.menu-principal').removeClass("menu-flotante");
-		}
+		}*/
 		if($(window).scrollTop()>800){
 			$('.semi-circle').fadeIn("slow");
 			$('.semi-circle').css("display","block");
